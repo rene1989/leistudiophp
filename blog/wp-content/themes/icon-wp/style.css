@@ -1,0 +1,1074 @@
+/*
+Theme Name: Icon WP
+Theme URI: http://invictusthemes.com/themes/iconwp/
+Author: Invictus Themes
+Author URI: http://invictusthemes.com/
+Description: Icon is a great responsive blogging theme with the usual customization options, and some new features for the default home page. In the customizer you can choose whether or not to display the Posts slider, which category the posts slider should use, and whether to display the optional featured pages which is a great way to feature products or services on your home page.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: iconwp
+Tags: custom-menu, full-width-template, post-formats
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Icon WP is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Typography
+# Elements
+# Forms
+# Header
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+    ## Posts and pages
+	## Asides
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	font-family:'open sans', Verdana, Geneva, sans-serif;	
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-weight: 800;
+	font-family: 'open sans', Verdana, Geneva, sans-serif;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+.home .entry-content p{
+	color:#ffffff;
+}
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: #fff; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 2px solid;
+	border-color: #000;
+	background: #fff;	
+	color: rgba(0, 0, 0, .8);
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 1;
+	padding: .6em 1em .6em;
+
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #000;
+	background:#000;
+	color:#fff;
+
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	border-color: #aaa #bbb #bbb;
+	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	padding: 3px;
+}
+
+textarea {
+	padding-left: 3px;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-branding{
+	float:left;
+}
+.site-header{
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:5px solid #d7d7d7;
+	width: 100%;
+	background-color: #fff;
+	min-height:120x;
+}
+.site-title{
+	margin:0;
+}
+.site-title a{
+    font-size: 60px;
+    color: #898989;
+	font-weight:bold;	
+}
+.site-description{
+	margin-bottom:10px;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+	color: #000;
+	text-decoration:none;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #959595;
+	text-decoration:none;
+}
+
+a:focus {
+	outline:none;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+	text-decoration:none;
+}
+a.more{
+	color:#fff;
+}
+a.more:hover{
+	color: #959595;
+}
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+.main-navigation {
+	display: block;
+	float:right;
+	margin-top: 5px;
+}
+.main-navigation .fa{
+	font-size:16px;
+}
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation li {
+	padding:10px;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul ul li {
+
+}
+
+.main-navigation li:hover > a,
+.main-navigation li.focus > a {
+}
+
+.main-navigation ul ul :hover > a,
+.main-navigation ul ul .focus > a {
+}
+
+.main-navigation ul ul a:hover,
+.main-navigation ul ul a.focus {
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	left: 100%;
+}
+
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a {
+	color: #959595;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+		float:right;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Make sure select elements fit in widgets. */
+.widget select {
+	max-width: 100%;
+}
+
+/* Search widget. */
+.widget_search .search-submit {
+	display: none;
+}
+h1.widget-title{
+    font-weight: 500;
+	font-size: 28px;
+	color: #000;
+	border-bottom: solid 1px #edebeb;
+	padding-bottom: 15px;
+}
+.widget ul{
+	line-height: 32px;
+	list-style-type: none;
+	margin-left: 30px;
+}
+.widget_iconwp_recent_posts ul{
+	margin-left:0;
+}
+.widget_iconwp_recent_posts ul li img{
+	margin:0 auto;
+}
+.widget ul li{
+	position: relative;
+}
+.widget ul li:before{
+	content: "";
+	position: absolute;
+	left: -15px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 5.5px 0 5.5px 8px;
+	border-color: transparent transparent transparent #000000;
+	top: 11px;
+}
+.aside-container{
+	position: relative;	
+	margin: 15px 0;
+}
+.abs-details{
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, .5);
+	padding: 5px 20px;
+}
+.abs-details a{
+	color: #fff;
+}
+.abs-details a:hover{
+	color: #ccc;
+}
+.abs-details h4, .post-details  h4{
+	margin-bottom: 0;
+}
+.abs-details .meta-info-date{
+	color: #ccc;
+}
+.post-details{
+	background:#f1f1f1;	
+	padding: 5px 20px;
+}
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+.page .entry-header{
+
+}
+.archive .entry-header h1{
+	margin-top:0;	
+	margin-bottom: 10px;
+}
+.entry-header h1{
+	font-size:200%;
+}
+.thumbnail-holder{
+	background:#ccc;
+}
+.thumbnail-holder article{
+
+}
+.thumbnail-holder .entry-content{
+	margin:0;
+	height: 100%;
+}
+.thumbnail-holder .entry-content p{
+	margin-top: 70px;
+	padding: 50px;
+}
+.thumbnail-holder .entry-header{
+	position: absolute;
+	width:100%;
+	bottom:0;
+	text-align:center;
+}
+.thumbnail-holder .entry-header a{
+	color:#ffffff;
+}
+.thumbnail-holder .entry-header a:hover{
+	text-decoration:none;
+}
+#colophon{
+	background: #f4f4f4;
+	padding: 0;
+	margin-top: 30px;
+}
+.entry-header .container{
+	display: flex;
+	justify-content: center;
+	min-height: 350px;	
+}
+#no-featured{
+	background-color: #000;	
+}
+.inner-container{
+	align-self: center;
+	text-align: center;
+	background: rgba(0, 0, 0, .7);
+	padding: 20px 30px;
+}
+.title-container .entry-title{
+	font-size: 36px;
+	color: #fff;
+	font-weight: bold;
+}
+.home h1.entry-title{
+	padding-left:10px;
+	padding-right:10px;
+}
+h1.posts-title{
+	text-align:center;
+	font-size:400%;
+	margin:50px 0 30px;
+}
+.title-container .posted-on, .title-container .posted-on a{
+	color: #888888;
+	font-style:italic;
+}
+.taxonomy-description p{
+	color:#fff;
+}
+.site-info{
+	background-color: #363636;
+}
+.site-info a, .site-info{
+	color: #ccc;
+	padding:10px 0;
+}
+.site-info a:hover{
+	color: #fff;
+}
+.breadcrumb-container{
+	background-color: #f1f1f1;
+	border-bottom: solid 2px #e1e1e1;
+	margin-bottom: 20px;
+}
+#breadcrumbs {
+    list-style: none;
+    margin: 20px 0 10px;
+    overflow: hidden;
+    display: inline-block;
+}
+#breadcrumbs li {
+    float: left;
+    margin-right: 15px;
+}
+.btn-more{
+	font-size: 28px;
+	color: #23282f;
+}
+.read-more{
+	text-align:center;
+}
+.fa-angle-double-right{
+	padding-left: 5px;
+	font-size: 25px;	
+}
+.no-top-margin{
+	margin-top: 0;
+}
+/*--------------------------------------------------------------
+## Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+.widget_iconwp_recent_posts ul li:before{
+	border:none;
+}
+/*--------------------------------------------------------------
+## footer
+--------------------------------------------------------------*/
+#footer-widget{
+	background:#f4f4f4;
+	padding: 20px 0;
+}
+#colophon:before{
+	width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 30px 0 30px;
+    border-color: #fff transparent transparent transparent;
+    margin: 0 auto;
+}
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+.left-box-comment input[type="text"]{
+	    width: 100%;
+		padding: 12px;	
+}
+::-webkit-input-placeholder {
+   font-style: italic;
+   font-weight:100;
+}
+.form-submit{
+	text-align:center;	
+}
+.form-submit .submit{
+	background: none;
+	color: #000;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+#reply-title{
+	font-weight: 400;
+	font-size: 36px;
+	color: #000;
+	text-align:center;
+}
+.comment-notes{
+	text-align:center;
+}
+.logged-in-as{
+	text-align: center;
+}
+.comment-metadata{
+	line-height: 24px;
+	font-size: 14px;
+	padding-left: 72px;
+}
+.comment-author img {
+    margin-right: 12px;
+	width: 50px;
+}
+.comment-list li.comment .comment-content, .comment-list li.comment .reply{
+	margin-left: 72px;
+	font-size: 14px;
+}
+.comment-list li.comment .comment-content p{
+	margin-bottom: 10px;
+}
+.comment-list article{
+	padding: 17px 20px 20px;
+	margin-bottom: 20px;
+}
+#comments ol {
+    list-style-type: none;
+    padding: 0;
+}
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	margin: 0 auto;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+.circle-img{
+	border-radius:50%;
+	overflow:hidden;
+	display:block;
+	max-width:500px;
+	margin:20px auto;
+	border: 10px solid #ffffff;
+}
+
+.btn-primary{
+	background-color:transparent;
+	border:2px solid #000000;
+	border-radius:0;
+	color:#000000;
+}
+.btn-primary:hover{
+	background-color:#000000;
+	border-color:#ffffff;
+}
+
+@media screen and (min-width: 600px) {
+	.main-navigation ul ul {
+		float: left;
+		position: absolute;
+		top: 30px;
+		left: -999em;
+		z-index: 99999;
+		background:#ffffff;
+	}
+	
+	.main-navigation ul ul ul {
+		left: -999em;
+		top: 0;
+	}
+	.main-navigation li {
+		float: left;
+		position: relative;
+	}
+	
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+html, body, #page, #home-slider {
+	height:calc(100% - 30px);
+	margin:0;
+	padding:0;
+}
+.carousel-content-bg{
+	background-color: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-bottom: 40px;
+}
+.carousel, .item, .active{
+	height:calc(100% - 0px);
+}
+.carousel-inner {
+	height:calc(100% - 0px);
+	text-align: center;
+}
+.carousel-inner h1{
+	font-size:300%;
+	color:#ffffff;
+}
+.carousel-inner p{
+	font-size:18px;
+	color:#ffffff;
+	font-weight:300;
+}
+.carousel {
+	margin-bottom: 60px;
+}
+
+.carousel .item {
+	background-color: #777;
+}
+.carousel-indicators{
+	bottom:10px;
+}
+.carousel .carousel-inner .bg {
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.effect-container{
+	background-color: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 991px){
+	.aside-container{
+		width: 400px;
+		margin: 15px auto;
+	}
+}
+@media (min-width: 992px){
+	.col-md-4 {
+	  width: 33.3%;
+	}
+	.thumbnail-holder{
+		height:513px;
+		overflow:hidden;
+		padding: 0;
+		border: 1px solid #ffffff;
+	}
+	.effect-container{
+		height: 120px;
+		overflow: hidden;
+		position: absolute;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.7);
+		background: rgba(0, 0, 0, 0.7);
+		transition:0.1s;
+	}
+	.effect-container:hover{
+		height:513px;
+		transition:0.5s;
+	}
+	
+}
+@media (min-width: 768px){
+	.main-navigation {
+		margin-top: 28px;
+	}
+}
+@media (max-width: 480px){
+	.main-navigation, .site-branding{
+		float:none;
+	}
+	.carousel-inner h1{
+		font-size:200%;
+	}
+	.carousel-inner p{
+		display:none;
+	}
+	.thumbnail-holder .entry-header{
+		position:relative;
+	}
+	.entry-header{
+		padding-bottom:10px;
+	}
+}
