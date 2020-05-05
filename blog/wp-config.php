@@ -16,16 +16,24 @@
 
 // ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //
 /** WordPress 数据库的名称 */
-define('DB_NAME', 'leistudiophp');
+
+define('SAE_MYSQL_USER', 'mysql_leistudiophp');
+define('SAE_MYSQL_HOST_M', 'localhost');
+define('SAE_MYSQL_PORT', '3306');
+define('SAE_MYSQL_PASS', '77etbvg@H38eISqM');
+define('SAE_MYSQL_DB', 'leistudiophp');
+
+
+define('DB_NAME', SAE_MYSQL_DB);
 
 /** MySQL 数据库用户名 */
-define('DB_USER', 'mysql_leistudiophp');
+define('DB_USER', SAE_MYSQL_USER);
 
 /** MySQL 数据库密码 */
-define('DB_PASSWORD', '77etbvg@H38eISqM');
+define('DB_PASSWORD', SAE_MYSQL_PASS);
 
 /** MySQL 主机 */
-define('DB_HOST', '62.234.106.118'.':'.'3306');
+define('DB_HOST', SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT);
 
 /** 创建数据表时默认的文字编码 */
 define('DB_CHARSET', 'utf8');
