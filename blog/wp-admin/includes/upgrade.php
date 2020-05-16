@@ -575,9 +575,9 @@ function upgrade_110() {
 	add_option('gmt_offset', $gmt_offset);
 
 	// Check if we already set the GMT fields (if we did, then
-	// MAX(post_date_gmt) can't be '0000-00-00 00:00:00'
+	// MAX(post_date_gmt) can't be '1990-01-01 00:00:00'
 	// <michel_v> I just slapped myself silly for not thinking about it earlier
-	$got_gmt_fields = ! ($wpdb->get_var("SELECT MAX(post_date_gmt) FROM $wpdb->posts") == '0000-00-00 00:00:00');
+	$got_gmt_fields = ! ($wpdb->get_var("SELECT MAX(post_date_gmt) FROM $wpdb->posts") == '1990-01-01 00:00:00');
 
 	if (!$got_gmt_fields) {
 
@@ -586,7 +586,7 @@ function upgrade_110() {
 		$add_minutes = intval(60 * ($diff_gmt_weblogger - $add_hours));
 		$wpdb->query("UPDATE $wpdb->posts SET post_date_gmt = DATE_ADD(post_date, INTERVAL '$add_hours:$add_minutes' HOUR_MINUTE)");
 		$wpdb->query("UPDATE $wpdb->posts SET post_modified = post_date");
-		$wpdb->query("UPDATE $wpdb->posts SET post_modified_gmt = DATE_ADD(post_modified, INTERVAL '$add_hours:$add_minutes' HOUR_MINUTE) WHERE post_modified != '0000-00-00 00:00:00'");
+		$wpdb->query("UPDATE $wpdb->posts SET post_modified_gmt = DATE_ADD(post_modified, INTERVAL '$add_hours:$add_minutes' HOUR_MINUTE) WHERE post_modified != '1990-01-01 00:00:00'");
 		$wpdb->query("UPDATE $wpdb->comments SET comment_date_gmt = DATE_ADD(comment_date, INTERVAL '$add_hours:$add_minutes' HOUR_MINUTE)");
 		$wpdb->query("UPDATE $wpdb->users SET user_registered = DATE_ADD(user_registered, INTERVAL '$add_hours:$add_minutes' HOUR_MINUTE)");
 	}
@@ -1066,7 +1066,7 @@ function upgrade_270() {
 
 	// Update post_date for unpublished posts with empty timestamp
 	if ( $wp_current_db_version < 8921 )
-		$wpdb->query( "UPDATE $wpdb->posts SET post_date = post_modified WHERE post_date = '0000-00-00 00:00:00'" );
+		$wpdb->query( "UPDATE $wpdb->posts SET post_date = post_modified WHERE post_date = '1990-01-01 00:00:00'" );
 }
 
 /**

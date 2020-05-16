@@ -279,13 +279,13 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 								$date = 'Y/m/d';
 							else
 								$date = 'Y/m/d \<\b\r \/\> g:i:s a';
-							echo ( $blog['last_updated'] == '0000-00-00 00:00:00' ) ? __( 'Never' ) : mysql2date( $date, $blog['last_updated'] ); ?>
+							echo ( $blog['last_updated'] == '1990-01-01 00:00:00' ) ? __( 'Never' ) : mysql2date( $date, $blog['last_updated'] ); ?>
 						</td>
 					<?php
 					break;
 				case 'registered':
 						echo "<td valign='top' class='$column_name column-$column_name'$style>";
-						if ( $blog['registered'] == '0000-00-00 00:00:00' )
+						if ( $blog['registered'] == '1990-01-01 00:00:00' )
 							echo '&#x2014;';
 						else
 							echo mysql2date( $date, $blog['registered'] );

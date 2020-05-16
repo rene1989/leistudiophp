@@ -2544,17 +2544,17 @@ function wp_insert_post($postarr, $wp_error = false) {
 	}
 
 	// If the post date is empty (due to having been new or a draft) and status is not 'draft' or 'pending', set date to now
-	if ( empty($post_date) || '0000-00-00 00:00:00' == $post_date )
+	if ( empty($post_date) || '1990-01-01 00:00:00' == $post_date )
 		$post_date = current_time('mysql');
 
-	if ( empty($post_date_gmt) || '0000-00-00 00:00:00' == $post_date_gmt ) {
+	if ( empty($post_date_gmt) || '1990-01-01 00:00:00' == $post_date_gmt ) {
 		if ( !in_array( $post_status, array( 'draft', 'pending', 'auto-draft' ) ) )
 			$post_date_gmt = get_gmt_from_date($post_date);
 		else
-			$post_date_gmt = '0000-00-00 00:00:00';
+			$post_date_gmt = '1990-01-01 00:00:00';
 	}
 
-	if ( $update || '0000-00-00 00:00:00' == $post_date ) {
+	if ( $update || '1990-01-01 00:00:00' == $post_date ) {
 		$post_modified     = current_time( 'mysql' );
 		$post_modified_gmt = current_time( 'mysql', 1 );
 	} else {
@@ -2734,7 +2734,7 @@ function wp_update_post($postarr = array()) {
 
 	// Drafts shouldn't be assigned a date unless explicitly done so by the user
 	if ( isset( $post['post_status'] ) && in_array($post['post_status'], array('draft', 'pending', 'auto-draft')) && empty($postarr['edit_date']) &&
-			 ('0000-00-00 00:00:00' == $post['post_date_gmt']) )
+			 ('1990-01-01 00:00:00' == $post['post_date_gmt']) )
 		$clear_date = true;
 	else
 		$clear_date = false;

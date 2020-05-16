@@ -1029,7 +1029,7 @@ function wp_get_archives($args = '') {
 		}
 		if ( $arcresults ) {
 			foreach ( (array) $arcresults as $arcresult ) {
-				if ( $arcresult->post_date != '0000-00-00 00:00:00' ) {
+				if ( $arcresult->post_date != '1990-01-01 00:00:00' ) {
 					$url  = get_permalink( $arcresult );
 					if ( $arcresult->post_title )
 						$text = strip_tags( apply_filters( 'the_title', $arcresult->post_title, $arcresult->ID ) );

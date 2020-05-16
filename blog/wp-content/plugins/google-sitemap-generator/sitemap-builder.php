@@ -189,7 +189,7 @@ class GoogleSitemapGeneratorStandardBuilder {
 
 						if($postType == 'post' && $minPrio > 0 && $prio < $minPrio) $prio = $minPrio;
 
-						$gsg->AddUrl($permalink, $gsg->GetTimestampFromMySql(($post->post_modified_gmt && $post->post_modified_gmt != '0000-00-00 00:00:00'
+						$gsg->AddUrl($permalink, $gsg->GetTimestampFromMySql(($post->post_modified_gmt && $post->post_modified_gmt != '1990-01-01 00:00:00'
 									                       ? $post->post_modified_gmt
 									                       : $post->post_date_gmt)), ($postType == 'page' ? $cf_pages
 									: $cf_posts), $prio, $post->ID);
@@ -263,7 +263,7 @@ class GoogleSitemapGeneratorStandardBuilder {
 					$p = get_page($pageOnFront);
 					if($p) {
 						$homePid = $p->ID;
-						$gsg->AddUrl(trailingslashit($home), $gsg->GetTimestampFromMySql(($p->post_modified_gmt && $p->post_modified_gmt != '0000-00-00 00:00:00'
+						$gsg->AddUrl(trailingslashit($home), $gsg->GetTimestampFromMySql(($p->post_modified_gmt && $p->post_modified_gmt != '1990-01-01 00:00:00'
 									                                   ? $p->post_modified_gmt
 									                                   : $p->post_date_gmt)), $gsg->GetOption("cf_home"), $gsg->GetOption("pr_home"));
 					}
